@@ -11,31 +11,45 @@ import Foundation
 
 class ViewController: NSViewController {
 
-    var OurTimer = Timer()
-    var TimerDisplayed = 0
+    var CountdownTimer = Timer()
+    var SecondsDisplayed = 0
+    var MinutesDisplayed = 60
     
-    @IBOutlet weak var Label: NSTextField!
+    @IBOutlet weak var SecondsLBL: NSTextField!
+    @IBOutlet weak var MinutesLBL: NSTextField!
     
     
     @IBAction func StartBTN(_ sender: Any) {
-        OurTimer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
+        CountdownTimer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
     }
     
     @IBAction func PauseBTN(_ sender: Any) {
-        OurTimer.invalidate()
+        CountdownTimer.invalidate()
     }
     
     
     
     @IBAction func ResetBTN(_ sender: Any) {
-        OurTimer.invalidate()
-        TimerDisplayed=0
-        Label.stringValue = "0"
+        CountdownTimer.invalidate()
+        MinutesDisplayed = 60
+        MinutesLBL.stringValue = String(MinutesDisplayed)
+        SecondsDisplayed = 0
+        SecondsLBL.stringValue = "0" + String(SecondsDisplayed)
     }
     
     @objc func Action(){
-        TimerDisplayed += 1
-        Label.stringValue = String(TimerDisplayed)
+        SecondsDisplayed -= 1
+        if SecondsDisplayed < 0 {
+            MinutesDisplayed -= 1
+            SecondsDisplayed = 59
+            MinutesLBL.stringValue = String(MinutesDisplayed)
+        }
+        if SecondsDisplayed < 10 {
+            SecondsLBL.stringValue = "0" + String(SecondsDisplayed)
+        }
+        else {
+        SecondsLBL.stringValue = String(SecondsDisplayed)
+        }
     }
     
     
