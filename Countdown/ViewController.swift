@@ -8,9 +8,11 @@
 
 import Cocoa
 import Foundation
+import AVFoundation //import audio library
 
 class ViewController: NSViewController {
 
+    var audioPlayer = AVAudioPlayer() // initializing the AVAudioPlayer object
     var CountdownTimer = Timer()
     var SecondsDisplayed = 0
     var MinutesDisplayed = 60
@@ -26,8 +28,7 @@ class ViewController: NSViewController {
     @IBAction func PauseBTN(_ sender: Any) {
         CountdownTimer.invalidate()
     }
-    
-    
+
     
     @IBAction func ResetBTN(_ sender: Any) {
         CountdownTimer.invalidate()
@@ -35,6 +36,7 @@ class ViewController: NSViewController {
         MinutesLBL.stringValue = String(MinutesDisplayed)
         SecondsDisplayed = 0
         SecondsLBL.stringValue = "0" + String(SecondsDisplayed)
+        audioPlayer.play()
     }
     
     @objc func Action(){
@@ -42,13 +44,28 @@ class ViewController: NSViewController {
         if SecondsDisplayed < 0 {
             MinutesDisplayed -= 1
             SecondsDisplayed = 59
-            MinutesLBL.stringValue = String(MinutesDisplayed)
         }
-        if SecondsDisplayed < 10 {
+        if MinutesDisplayed < 0 {
+            CountdownTimer.invalidate()
+            MinutesDisplayed = 0
+            MinutesLBL.stringValue = "0" + String(MinutesDisplayed)
+            SecondsDisplayed = 0
             SecondsLBL.stringValue = "0" + String(SecondsDisplayed)
+            audioPlayer.play()
         }
         else {
-        SecondsLBL.stringValue = String(SecondsDisplayed)
+            if MinutesDisplayed < 10 {
+                MinutesLBL.stringValue = "0" + String(MinutesDisplayed)
+            }
+            else {
+                MinutesLBL.stringValue = String(MinutesDisplayed)
+            }
+            if SecondsDisplayed < 10 {
+                SecondsLBL.stringValue = "0" + String(SecondsDisplayed)
+            }
+            else {
+                SecondsLBL.stringValue = String(SecondsDisplayed)
+            }
         }
     }
     
@@ -56,7 +73,13 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         //super.viewDidLoad()
-
+        let sound = Bundle.main.path(forResource: "alert", ofType: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch{
+            print(error)
+        }
         // Do any additional setup after loading the view.
     }
 
