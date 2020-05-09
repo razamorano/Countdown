@@ -19,6 +19,10 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var SecondsLBL: NSTextField!
     @IBOutlet weak var MinutesLBL: NSTextField!
+    @IBAction func SelectMinutes(_ sender: Any) {
+        MinutesDisplayed = MinutesDisplayed + 1
+        MinutesLBL.stringValue = String(MinutesDisplayed)
+    }
     
     
     @IBAction func StartBTN(_ sender: Any) {

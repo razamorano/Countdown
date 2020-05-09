@@ -14,6 +14,7 @@
 		EE8133FB245969EF00061BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE8133F9245969EF00061BD9 /* Main.storyboard */; };
 		EE813407245969EF00061BD9 /* CountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE813406245969EF00061BD9 /* CountdownTests.swift */; };
 		EE813412245969EF00061BD9 /* CountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE813411245969EF00061BD9 /* CountdownUITests.swift */; };
+		EECD0891245FF9CE002CA340 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EECD0890245FF9CD002CA340 /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		EE81340D245969EF00061BD9 /* CountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE813411245969EF00061BD9 /* CountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownUITests.swift; sourceTree = "<group>"; };
 		EE813413245969EF00061BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EECD0890245FF9CD002CA340 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				EE8133F7245969EF00061BD9 /* Assets.xcassets */,
 				EE8133F9245969EF00061BD9 /* Main.storyboard */,
 				EE8133FC245969EF00061BD9 /* Info.plist */,
+				EECD0890245FF9CD002CA340 /* Icon.png */,
 				EE8133FD245969EF00061BD9 /* Countdown.entitlements */,
 			);
 			path = Countdown;
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECD0891245FF9CE002CA340 /* Icon.png in Resources */,
 				EE8133F8245969EF00061BD9 /* Assets.xcassets in Resources */,
 				EE8133FB245969EF00061BD9 /* Main.storyboard in Resources */,
 				EE727635245BE462006018E4 /* alert.wav in Resources */,
